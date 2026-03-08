@@ -5,7 +5,11 @@ import { Button } from '@/components/ui/button';
 import Confetti from './Confetti';
 import Sparkles from './Sparkles';
 
-const RSVPSection: React.FC = () => {
+interface RSVPProps {
+  childName: string;
+}
+
+const RSVPSection: React.FC<RSVPProps> = ({ childName }) => {
   const [guestName, setGuestName] = useState('');
   const [accepted, setAccepted] = useState(false);
 
@@ -15,7 +19,6 @@ const RSVPSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden bg-gradient-to-b from-primary/5 via-background to-secondary/5">
-      {/* Background animals */}
       <motion.span className="absolute top-[10%] left-[5%] text-5xl opacity-15" animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}>🐘</motion.span>
       <motion.span className="absolute bottom-[15%] right-[5%] text-5xl opacity-15" animate={{ y: [0, -12, 0] }} transition={{ duration: 3, repeat: Infinity }}>🐱</motion.span>
       <motion.span className="absolute top-[50%] right-[8%] text-5xl opacity-15" animate={{ y: [0, -10, 0] }} transition={{ duration: 3.5, repeat: Infinity }}>🐄</motion.span>
@@ -38,7 +41,7 @@ const RSVPSection: React.FC = () => {
               RSVP
             </motion.h2>
             <p className="text-muted-foreground font-dancing text-xl mb-10">
-              Let us know you're coming! 💌
+              Enter your name to create your personalized invitation! 💌
             </p>
 
             <motion.div className="bg-card p-8 rounded-3xl shadow-xl border border-border" whileHover={{ y: -3 }}>
@@ -47,8 +50,9 @@ const RSVPSection: React.FC = () => {
                 <Input
                   value={guestName}
                   onChange={(e) => setGuestName(e.target.value)}
-                  placeholder="Enter your beautiful name..."
+                  placeholder="Enter your name..."
                   className="text-center text-lg py-6 rounded-2xl border-primary/30 focus:border-primary"
+                  onKeyDown={(e) => e.key === 'Enter' && handleAccept()}
                 />
               </div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -77,38 +81,34 @@ const RSVPSection: React.FC = () => {
               className="bg-card p-10 rounded-3xl shadow-2xl border border-border relative overflow-hidden"
               style={{ animation: 'pulse-glow 2s infinite' }}
             >
-              <motion.div
-                className="text-7xl mb-6"
+              <motion.div className="text-7xl mb-4"
                 animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 🎀
               </motion.div>
 
-              <motion.h2 className="font-cursive text-4xl md:text-5xl barbie-text mb-4"
+              <motion.h2 className="font-cursive text-4xl md:text-5xl barbie-text mb-2"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 Thank You!
               </motion.h2>
 
-              <motion.p className="text-2xl font-dancing text-secondary mb-2"
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-              >
-                Dear
-              </motion.p>
+              <motion.p className="text-xl font-dancing text-secondary mb-1"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+              >Dear</motion.p>
 
               <motion.h3 className="text-4xl font-cursive text-primary mb-4"
                 initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8, type: 'spring' }}
-              >
-                {guestName}
-              </motion.h3>
+              >{guestName}</motion.h3>
 
               <motion.p className="text-muted-foreground font-dancing text-lg"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
               >
+                You are cordially invited to<br />
+                <span className="text-primary font-semibold">{childName}'s Birthday Party!</span><br />
                 We're so excited to celebrate with you! 👑
-                <br />See you at the party! 🎀🎂
               </motion.p>
 
               <motion.div className="flex justify-center gap-4 mt-6 text-4xl"
