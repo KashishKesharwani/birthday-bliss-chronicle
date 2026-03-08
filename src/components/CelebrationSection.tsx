@@ -4,8 +4,8 @@ import FloatingBalloons from './FloatingBalloons';
 import Confetti from './Confetti';
 import Sparkles from './Sparkles';
 import barbieCakeImg from '@/assets/barbie-cake.png';
-import barbieBlowingImg from '@/assets/barbie-blowing.png';
-import barbieCuttingImg from '@/assets/barbie-cutting.png';
+import barbieBlowImg from '@/assets/barbie-blow.png';
+import barbieHandsCuttingImg from '@/assets/barbie-hands-cutting.png';
 
 type Phase = 'candles-lit' | 'blowing' | 'candles-out' | 'cutting' | 'celebrate';
 
@@ -105,7 +105,7 @@ const CelebrationSection: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <motion.img
-                  src={barbieBlowingImg}
+                  src={barbieBlowImg}
                   alt="Barbie blowing candles"
                   className="w-56 md:w-72 mx-auto drop-shadow-2xl"
                   animate={{ scale: [1, 1.03, 1] }}
@@ -155,7 +155,7 @@ const CelebrationSection: React.FC = () => {
                 transition={{ duration: 0.5 }}
               >
                 <motion.img
-                  src={barbieBlowingImg}
+                  src={barbieBlowImg}
                   alt="Barbie after blowing"
                   className="w-56 md:w-72 mx-auto drop-shadow-2xl"
                 />
@@ -203,7 +203,7 @@ const CelebrationSection: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <motion.img
-                  src={barbieCuttingImg}
+                  src={barbieHandsCuttingImg}
                   alt="Barbie cutting cake"
                   className="w-56 md:w-72 mx-auto drop-shadow-2xl"
                   animate={{ y: [0, -5, 0] }}
