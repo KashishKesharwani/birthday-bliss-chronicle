@@ -291,68 +291,95 @@ const CelebrationSection: React.FC = () => {
           )}
         </motion.div>
 
-        {/* Beautiful decorative elements below - Gifts, hearts, stars */}
-        <motion.div
-          className="mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          {/* Magical floating items */}
-          <div className="flex justify-center items-end gap-3 md:gap-5 mb-6">
-            {[
-              { emoji: '🎀', size: 'text-4xl', delay: 0 },
-              { emoji: '🎁', size: 'text-5xl', delay: 0.1 },
-              { emoji: '💝', size: 'text-4xl', delay: 0.2 },
-              { emoji: '🎂', size: 'text-6xl', delay: 0.3 },
-              { emoji: '💝', size: 'text-4xl', delay: 0.4 },
-              { emoji: '🎁', size: 'text-5xl', delay: 0.5 },
-              { emoji: '🎀', size: 'text-4xl', delay: 0.6 },
-            ].map((item, i) => (
-              <motion.span
-                key={i}
-                className={item.size}
-                animate={{
-                  y: [0, -15, 0],
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 2.5,
-                  delay: item.delay,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              >
-                {item.emoji}
-              </motion.span>
-            ))}
-          </div>
+        {/* Floating gifts & hearts background */}
+        <div className="relative mt-12 py-10">
+          {/* Scattered floating gifts and hearts */}
+          {[
+            { emoji: '🎁', x: 5, y: 10, size: 'text-5xl', dur: 3.5 },
+            { emoji: '💖', x: 15, y: 30, size: 'text-4xl', dur: 3 },
+            { emoji: '🎁', x: 85, y: 15, size: 'text-5xl', dur: 4 },
+            { emoji: '💝', x: 90, y: 40, size: 'text-4xl', dur: 3.2 },
+            { emoji: '🎁', x: 25, y: 60, size: 'text-4xl', dur: 3.8 },
+            { emoji: '💖', x: 70, y: 55, size: 'text-5xl', dur: 3.5 },
+            { emoji: '💝', x: 50, y: 5, size: 'text-3xl', dur: 2.8 },
+            { emoji: '🎁', x: 60, y: 70, size: 'text-4xl', dur: 3.6 },
+            { emoji: '💖', x: 40, y: 45, size: 'text-3xl', dur: 3.1 },
+            { emoji: '🎁', x: 10, y: 65, size: 'text-3xl', dur: 4.2 },
+            { emoji: '💝', x: 78, y: 25, size: 'text-3xl', dur: 3.4 },
+            { emoji: '💖', x: 35, y: 75, size: 'text-4xl', dur: 3 },
+            { emoji: '🎁', x: 55, y: 35, size: 'text-3xl', dur: 3.7 },
+            { emoji: '💝', x: 20, y: 80, size: 'text-3xl', dur: 3.3 },
+            { emoji: '💖', x: 92, y: 70, size: 'text-4xl', dur: 3.9 },
+          ].map((item, i) => (
+            <motion.span
+              key={i}
+              className={`absolute ${item.size} opacity-30`}
+              style={{ left: `${item.x}%`, top: `${item.y}%` }}
+              animate={{
+                y: [0, -20, 0],
+                rotate: [0, i % 2 === 0 ? 15 : -15, 0],
+                scale: [0.9, 1.1, 0.9],
+              }}
+              transition={{
+                duration: item.dur,
+                delay: i * 0.2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              {item.emoji}
+            </motion.span>
+          ))}
 
-          {/* Sparkle trail */}
-          <div className="flex justify-center gap-2">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <motion.span
-                key={i}
-                className="text-sm"
-                animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
-                transition={{ duration: 1.5, delay: i * 0.12, repeat: Infinity }}
-              >
-                ✦
-              </motion.span>
-            ))}
-          </div>
+          {/* Center content over floating bg */}
+          <div className="relative z-10">
+            {/* Main row of gifts/hearts */}
+            <div className="flex justify-center items-end gap-3 md:gap-5 mb-6">
+              {[
+                { emoji: '🎀', size: 'text-4xl', delay: 0 },
+                { emoji: '🎁', size: 'text-5xl', delay: 0.1 },
+                { emoji: '💝', size: 'text-4xl', delay: 0.2 },
+                { emoji: '🎂', size: 'text-6xl', delay: 0.3 },
+                { emoji: '💝', size: 'text-4xl', delay: 0.4 },
+                { emoji: '🎁', size: 'text-5xl', delay: 0.5 },
+                { emoji: '🎀', size: 'text-4xl', delay: 0.6 },
+              ].map((item, i) => (
+                <motion.span
+                  key={i}
+                  className={item.size}
+                  animate={{ y: [0, -15, 0], scale: [1, 1.15, 1] }}
+                  transition={{ duration: 2.5, delay: item.delay, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  {item.emoji}
+                </motion.span>
+              ))}
+            </div>
 
-          {/* Princess crown decoration */}
-          <motion.div
-            className="mt-6 text-center"
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            <span className="text-5xl">👑</span>
-            <p className="font-dancing text-lg text-secondary mt-1">Our Little Princess</p>
-          </motion.div>
-        </motion.div>
+            {/* Sparkle trail */}
+            <div className="flex justify-center gap-2">
+              {Array.from({ length: 15 }).map((_, i) => (
+                <motion.span
+                  key={i}
+                  className="text-sm text-primary"
+                  animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
+                  transition={{ duration: 1.5, delay: i * 0.1, repeat: Infinity }}
+                >
+                  ✦
+                </motion.span>
+              ))}
+            </div>
+
+            {/* Princess crown */}
+            <motion.div
+              className="mt-6 text-center"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <span className="text-5xl">👑</span>
+              <p className="font-dancing text-lg text-secondary mt-1">Our Little Princess</p>
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
 
       {/* Decorative bottom border */}
