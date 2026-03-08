@@ -4,8 +4,8 @@ import FloatingBalloons from './FloatingBalloons';
 import Confetti from './Confetti';
 import Sparkles from './Sparkles';
 import barbieCakeImg from '@/assets/barbie-cake.png';
-import barbieBlowingImg from '@/assets/barbie-blowing.png';
-import barbieCuttingImg from '@/assets/barbie-cutting.png';
+import barbieBlowImg from '@/assets/barbie-blow.png';
+import barbieHandsCuttingImg from '@/assets/barbie-hands-cutting.png';
 
 type Phase = 'candles-lit' | 'blowing' | 'candles-out' | 'cutting' | 'celebrate';
 
