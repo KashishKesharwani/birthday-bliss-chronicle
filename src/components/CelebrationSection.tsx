@@ -155,7 +155,7 @@ const CelebrationSection: React.FC = () => {
                 transition={{ duration: 0.5 }}
               >
                 <motion.img
-                  src={barbieBlowingImg}
+                  src={barbieBlowImg}
                   alt="Barbie after blowing"
                   className="w-56 md:w-72 mx-auto drop-shadow-2xl"
                 />
