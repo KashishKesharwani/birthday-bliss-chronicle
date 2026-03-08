@@ -14,22 +14,20 @@ const CelebrationSection: React.FC = () => {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase('blowing'), 3500),
-      setTimeout(() => setPhase('candles-out'), 5500),
-      setTimeout(() => setPhase('cutting'), 7500),
-      setTimeout(() => setPhase('celebrate'), 10000),
+      setTimeout(() => setPhase('blowing'), 2000),
+      setTimeout(() => setPhase('candles-out'), 3200),
+      setTimeout(() => setPhase('cutting'), 4200),
+      setTimeout(() => setPhase('celebrate'), 5800),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
   const restart = () => {
     setPhase('candles-lit');
-    const timers = [
-      setTimeout(() => setPhase('blowing'), 3500),
-      setTimeout(() => setPhase('candles-out'), 5500),
-      setTimeout(() => setPhase('cutting'), 7500),
-      setTimeout(() => setPhase('celebrate'), 10000),
-    ];
+    setTimeout(() => setPhase('blowing'), 2000);
+    setTimeout(() => setPhase('candles-out'), 3200);
+    setTimeout(() => setPhase('cutting'), 4200);
+    setTimeout(() => setPhase('celebrate'), 5800);
   };
 
   return (
