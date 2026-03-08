@@ -51,6 +51,7 @@ const Index = () => {
           >
             <FloatingBalloons count={10} />
             <CelebrationSection />
+            <VideoSection />
             <JourneySection />
             <EventDetailsSection
               date={INVITATION_CONFIG.date}
