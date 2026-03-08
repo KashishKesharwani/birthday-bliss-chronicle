@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Video } from 'lucide-react';
+import { Video } from 'lucide-react';
 
 interface JourneyItem {
   age: string;
