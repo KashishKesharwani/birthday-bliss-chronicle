@@ -7,6 +7,7 @@ import EventDetailsSection from '@/components/EventDetailsSection';
 import BlessingsSection from '@/components/BlessingsSection';
 import RSVPSection from '@/components/RSVPSection';
 import FloatingBalloons from '@/components/FloatingBalloons';
+import VideoSection from '@/components/VideoSection';
 
 // ✨ CUSTOMIZE YOUR INVITATION HERE ✨
 const INVITATION_CONFIG = {
