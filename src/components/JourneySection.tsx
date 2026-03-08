@@ -59,62 +59,7 @@ const JourneySection: React.FC = () => {
         From the first breath to today 🌟
       </motion.p>
 
-      {/* Video Highlight Reel */}
-      <motion.div
-        className="max-w-3xl mx-auto px-6 mb-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 border border-border shadow-xl">
-          <div className="aspect-video flex flex-col items-center justify-center relative">
-            {/* Video placeholder background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
-            
-            {/* Decorative elements */}
-            <div className="absolute inset-0 pointer-events-none">
-              {['🎀', '💖', '🌟', '✨', '🎂', '👑'].map((e, i) => (
-                <motion.span
-                  key={i}
-                  className="absolute text-2xl opacity-20"
-                  style={{
-                    left: `${15 + i * 14}%`,
-                    top: `${20 + (i % 3) * 25}%`,
-                  }}
-                  animate={{ y: [0, -10, 0], opacity: [0.1, 0.3, 0.1] }}
-                  transition={{ duration: 3, delay: i * 0.4, repeat: Infinity }}
-                >
-                  {e}
-                </motion.span>
-              ))}
-            </div>
 
-            {/* Play button */}
-            <motion.div
-              className="relative z-10 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-2xl cursor-pointer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ scale: [1, 1.08, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              style={{ animation: 'pulse-glow 2s infinite' }}
-            >
-              <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
-            </motion.div>
-
-            <motion.p
-              className="relative z-10 mt-4 font-dancing text-xl text-primary"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              🎬 Our Princess's Journey Video
-            </motion.p>
-            <p className="relative z-10 text-sm text-muted-foreground mt-1">
-              Add your video URL here
-            </p>
-          </div>
-        </div>
-      </motion.div>
 
       {/* Timeline */}
       <div className="relative max-w-4xl mx-auto px-6">
