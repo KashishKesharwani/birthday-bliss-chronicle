@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Sparkles from './Sparkles';
-import Rainbow from './Rainbow';
+import barbieCakeImg from '@/assets/barbie-cake.png';
+import animalsImg from '@/assets/animals-group.png';
+import patternImg from '@/assets/party-pattern.png';
 
 interface LandingProps {
   childName: string;
@@ -11,22 +13,79 @@ interface LandingProps {
 
 const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-secondary/20 via-background to-primary/10">
-      <Rainbow />
-      <Sparkles count={25} />
+    <section
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: `url(${patternImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Pink overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 backdrop-blur-[2px]" />
 
-      {/* Stars */}
+      <Sparkles count={20} />
+
+      {/* Floating animals in background */}
+      <motion.img
+        src={animalsImg}
+        alt="Cute animals"
+        className="absolute bottom-4 left-4 w-32 md:w-48 opacity-80 z-[1]"
+        animate={{ y: [0, -15, 0], rotate: [-3, 3, -3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Individual floating animals */}
+      <motion.span
+        className="absolute top-[15%] left-[8%] text-5xl md:text-6xl z-[1]"
+        animate={{ y: [0, -20, 0], rotate: [-5, 5, -5] }}
+        transition={{ duration: 3.5, repeat: Infinity }}
+      >
+        🐘
+      </motion.span>
+      <motion.span
+        className="absolute top-[20%] right-[10%] text-5xl md:text-6xl z-[1]"
+        animate={{ y: [0, -15, 0], rotate: [5, -5, 5] }}
+        transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+      >
+        🐄
+      </motion.span>
+      <motion.span
+        className="absolute bottom-[20%] right-[8%] text-5xl md:text-6xl z-[1]"
+        animate={{ y: [0, -18, 0], rotate: [-3, 3, -3] }}
+        transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+      >
+        🐱
+      </motion.span>
+      <motion.span
+        className="absolute top-[40%] left-[5%] text-4xl z-[1]"
+        animate={{ y: [0, -12, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 0.8 }}
+      >
+        🦋
+      </motion.span>
+      <motion.span
+        className="absolute top-[60%] right-[5%] text-4xl z-[1]"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 3, repeat: Infinity, delay: 1.2 }}
+      >
+        🌸
+      </motion.span>
+
+      {/* Hearts floating */}
       {Array.from({ length: 8 }).map((_, i) => (
-        <motion.div
+        <motion.span
           key={i}
-          className="absolute text-accent text-2xl"
+          className="absolute text-primary/40 z-[1]"
           style={{
             left: `${10 + Math.random() * 80}%`,
             top: `${10 + Math.random() * 80}%`,
+            fontSize: `${14 + Math.random() * 20}px`,
           }}
           animate={{
-            opacity: [0.3, 1, 0.3],
-            scale: [0.8, 1.2, 0.8],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [0.8, 1.3, 0.8],
+            y: [0, -10, 0],
           }}
           transition={{
             duration: 2 + Math.random() * 2,
@@ -34,8 +93,8 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
             repeat: Infinity,
           }}
         >
-          ✦
-        </motion.div>
+          💖
+        </motion.span>
       ))}
 
       {/* Main content */}
@@ -51,11 +110,11 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          You're Invited to
+          ✨ You're Invited to ✨
         </motion.p>
 
         <motion.h1
-          className="font-cursive text-6xl md:text-8xl lg:text-9xl rainbow-text mb-4"
+          className="font-cursive text-6xl md:text-8xl lg:text-9xl barbie-text mb-2"
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8, type: 'spring' }}
@@ -64,15 +123,15 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
         </motion.h1>
 
         <motion.div
-          className="flex items-center justify-center gap-4 mb-6"
+          className="flex items-center justify-center gap-3 mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
           <span className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
           <motion.span
-            className="text-5xl md:text-7xl font-bold text-primary font-dancing"
-            animate={{ scale: [1, 1.1, 1] }}
+            className="text-5xl md:text-7xl font-bold text-primary font-pacifico"
+            animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             {age}
@@ -84,35 +143,57 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
         </motion.div>
 
         <motion.h2
-          className="text-4xl md:text-5xl font-dancing text-secondary mb-8"
+          className="text-3xl md:text-5xl font-dancing text-secondary mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Birthday Party! 🎂
+          Birthday Party! 🎀
         </motion.h2>
 
-        {/* Hands with cake emoji */}
+        {/* Barbie girl cake image */}
         <motion.div
-          className="text-6xl mb-8"
-          animate={{ rotate: [-5, 5, -5] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="mx-auto mb-8 relative"
+          initial={{ scale: 0, rotate: -10 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ delay: 1.2, type: 'spring', bounce: 0.4 }}
         >
-          🙌🎂🎉
+          <motion.img
+            src={barbieCakeImg}
+            alt="Barbie girl cutting cake with clapping hands"
+            className="w-48 md:w-64 mx-auto drop-shadow-2xl"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          {/* Clapping sparkles */}
+          <motion.span
+            className="absolute -left-4 bottom-4 text-2xl"
+            animate={{ scale: [1, 1.3, 1], rotate: [0, 10, 0] }}
+            transition={{ duration: 0.6, repeat: Infinity }}
+          >
+            👏
+          </motion.span>
+          <motion.span
+            className="absolute -right-4 bottom-4 text-2xl"
+            animate={{ scale: [1, 1.3, 1], rotate: [0, -10, 0] }}
+            transition={{ duration: 0.6, repeat: Infinity, delay: 0.3 }}
+          >
+            👏
+          </motion.span>
         </motion.div>
 
         <motion.button
           onClick={onOpen}
-          className="relative px-10 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full text-xl font-semibold shadow-lg overflow-hidden group"
+          className="relative px-10 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full text-xl font-semibold shadow-xl overflow-hidden group"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3 }}
+          transition={{ delay: 1.5 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           style={{ animation: 'pulse-glow 2s infinite' }}
         >
           <span className="relative z-10 flex items-center gap-2">
-            ✨ Open Invitation ✨
+            🎀 Open Invitation 🎀
           </span>
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity"
@@ -120,12 +201,12 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
         </motion.button>
       </motion.div>
 
-      {/* Bottom decorative wave */}
+      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 120" className="w-full">
           <path
             d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
-            fill="hsl(330, 80%, 55%)"
+            fill="hsl(330, 85%, 60%)"
             opacity="0.1"
           />
         </svg>

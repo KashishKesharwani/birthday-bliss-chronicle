@@ -20,7 +20,7 @@ const Index = () => {
             transition={{ duration: 0.8 }}
           >
             <LandingSection
-              childName="Aarav"
+              childName="Aaradhya"
               age={2}
               onOpen={() => setIsOpened(true)}
             />
@@ -38,7 +38,6 @@ const Index = () => {
             <EventDetailsSection />
             <RSVPSection />
 
-            {/* Footer */}
             <footer className="relative py-10 text-center bg-gradient-to-t from-primary/10 to-transparent">
               <motion.p
                 className="font-dancing text-2xl text-primary"
@@ -46,10 +45,10 @@ const Index = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
               >
-                Made with 💖 for our little star
+                Made with 💖 for our little princess
               </motion.p>
               <p className="text-sm text-muted-foreground mt-2">
-                🌈 Rainbows & Magic 🌈
+                🎀 Barbie Dreams & Magic 🎀
               </p>
             </footer>
           </motion.div>

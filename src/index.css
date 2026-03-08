@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,46 +6,43 @@
 
 @layer base {
   :root {
-    --background: 280 60% 98%;
-    --foreground: 280 40% 15%;
+    --background: 330 50% 97%;
+    --foreground: 330 40% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 280 40% 15%;
+    --card: 330 40% 99%;
+    --card-foreground: 330 40% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 280 40% 15%;
+    --popover-foreground: 330 40% 15%;
 
-    --primary: 330 80% 55%;
+    --primary: 330 85% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 60% 70%;
+    --secondary: 280 60% 70%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 280 30% 92%;
-    --muted-foreground: 280 20% 45%;
+    --muted: 330 30% 93%;
+    --muted-foreground: 330 15% 45%;
 
-    --accent: 45 90% 60%;
-    --accent-foreground: 280 40% 15%;
+    --accent: 300 70% 75%;
+    --accent-foreground: 330 40% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 280 30% 88%;
-    --input: 280 30% 88%;
-    --ring: 330 80% 55%;
+    --border: 330 30% 90%;
+    --input: 330 30% 90%;
+    --ring: 330 85% 60%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --rainbow-1: 0 85% 65%;
-    --rainbow-2: 30 90% 60%;
-    --rainbow-3: 50 95% 55%;
-    --rainbow-4: 140 70% 50%;
-    --rainbow-5: 200 80% 55%;
-    --rainbow-6: 270 70% 60%;
-    --rainbow-7: 330 80% 55%;
-
+    --barbie-pink: 330 85% 60%;
+    --barbie-hot: 335 90% 50%;
+    --barbie-light: 330 70% 85%;
+    --barbie-pastel: 330 50% 92%;
+    --barbie-magenta: 310 70% 55%;
+    --lavender: 270 60% 75%;
     --gold: 42 90% 55%;
-    --gold-light: 42 85% 75%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -58,25 +55,25 @@
   }
 
   .dark {
-    --background: 280 40% 8%;
-    --foreground: 280 20% 95%;
-    --card: 280 40% 12%;
-    --card-foreground: 280 20% 95%;
-    --popover: 280 40% 12%;
-    --popover-foreground: 280 20% 95%;
-    --primary: 330 80% 55%;
+    --background: 330 30% 8%;
+    --foreground: 330 20% 95%;
+    --card: 330 30% 12%;
+    --card-foreground: 330 20% 95%;
+    --popover: 330 30% 12%;
+    --popover-foreground: 330 20% 95%;
+    --primary: 330 85% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 270 60% 50%;
+    --secondary: 280 60% 50%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 280 30% 18%;
-    --muted-foreground: 280 20% 65%;
-    --accent: 45 90% 60%;
-    --accent-foreground: 280 40% 15%;
+    --muted: 330 20% 18%;
+    --muted-foreground: 330 15% 65%;
+    --accent: 300 70% 65%;
+    --accent-foreground: 330 40% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 280 30% 22%;
-    --input: 280 30% 22%;
-    --ring: 330 80% 55%;
+    --border: 330 20% 22%;
+    --input: 330 20% 22%;
+    --ring: 330 85% 60%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -105,26 +102,32 @@
   .font-dancing {
     font-family: 'Dancing Script', cursive;
   }
+  .font-pacifico {
+    font-family: 'Pacifico', cursive;
+  }
 }
 
-/* Rainbow text gradient */
-.rainbow-text {
+/* Barbie pink gradient text */
+.barbie-text {
   background: linear-gradient(
-    90deg,
-    hsl(0 85% 65%),
-    hsl(30 90% 60%),
-    hsl(50 95% 55%),
-    hsl(140 70% 50%),
-    hsl(200 80% 55%),
-    hsl(270 70% 60%),
-    hsl(330 80% 55%)
+    135deg,
+    hsl(330, 85%, 60%),
+    hsl(310, 70%, 55%),
+    hsl(280, 60%, 70%),
+    hsl(330, 85%, 60%)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer-text 3s linear infinite;
 }
 
-/* Sparkle animation */
+@keyframes shimmer-text {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 @keyframes sparkle {
   0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
   50% { opacity: 1; transform: scale(1) rotate(180deg); }
@@ -135,34 +138,17 @@
   100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
 }
 
-@keyframes sway {
-  0%, 100% { transform: translateX(0) rotate(-2deg); }
-  50% { transform: translateX(20px) rotate(2deg); }
-}
-
-@keyframes confetti-fall {
-  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
-
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(330 80% 55% / 0.3); }
-  50% { box-shadow: 0 0 40px hsl(330 80% 55% / 0.6), 0 0 60px hsl(270 70% 60% / 0.3); }
+  0%, 100% { box-shadow: 0 0 20px hsl(330, 85%, 60%, 0.3); }
+  50% { box-shadow: 0 0 40px hsl(330, 85%, 60%, 0.6), 0 0 60px hsl(280, 60%, 70%, 0.3); }
 }
 
-@keyframes star-twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
+@keyframes float-animal {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: hsl(280 30% 92%);
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(330 80% 55% / 0.5);
-  border-radius: 3px;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(330, 30%, 93%); }
+::-webkit-scrollbar-thumb { background: hsl(330, 85%, 60%, 0.5); border-radius: 3px; }
