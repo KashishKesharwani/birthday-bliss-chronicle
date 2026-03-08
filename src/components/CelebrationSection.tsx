@@ -203,7 +203,7 @@ const CelebrationSection: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <motion.img
-                  src={barbieCuttingImg}
+                  src={barbieHandsCuttingImg}
                   alt="Barbie cutting cake"
                   className="w-56 md:w-72 mx-auto drop-shadow-2xl"
                   animate={{ y: [0, -5, 0] }}
