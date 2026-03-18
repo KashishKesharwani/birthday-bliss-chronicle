@@ -269,7 +269,7 @@ const RSVPSection: React.FC<RSVPProps> = ({ childName }) => {
               <motion.div
                 className="text-7xl md:text-8xl mb-2"
                 initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: [0, 1.4, 1], rotate: [−180, 20, 0] }}
+                animate={{ scale: [0, 1.4, 1], rotate: [-180, 20, 0] }}
                 transition={{ duration: 0.8, type: 'spring' }}
               >
                 🎉
