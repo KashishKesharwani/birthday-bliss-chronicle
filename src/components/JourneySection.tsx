@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Play, Video, Camera } from 'lucide-react';
+import MemoryGallery from './MemoryGallery';
 
 interface JourneyItem {
   age: string;
