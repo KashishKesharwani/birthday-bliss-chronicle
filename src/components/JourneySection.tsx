@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Play, Video, Camera } from 'lucide-react';
+import MemoryGallery from './MemoryGallery';
 
 interface JourneyItem {
   age: string;
@@ -149,150 +150,14 @@ const JourneySection: React.FC = () => {
         ))}
       </div>
 
-      {/* ========== BIG BARBIE PARTY FRAME - Memory Gallery ========== */}
+      {/* ========== BARBIE WORLD MEMORY GALLERY ========== */}
       <motion.div
         className="max-w-5xl mx-auto px-4 md:px-6 mt-16"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        {/* Outer decorative frame */}
-        <div className="relative">
-          {/* Top floating decorations */}
-          <div className="flex justify-center gap-4 mb-4">
-            {['🎈', '🎀', '👑', '🎂', '🎀', '🎈'].map((e, i) => (
-              <motion.span
-                key={i}
-                className="text-2xl md:text-3xl"
-                animate={{ y: [0, -8, 0], rotate: [0, i % 2 === 0 ? 10 : -10, 0] }}
-                transition={{ duration: 2 + i * 0.2, repeat: Infinity }}
-              >
-                {e}
-              </motion.span>
-            ))}
-          </div>
-
-          {/* Main big frame */}
-          <div className="relative p-[4px] md:p-[5px] rounded-[2rem] bg-gradient-to-br from-primary via-secondary to-accent shadow-2xl">
-            {/* Inner border with scallop effect */}
-            <div className="relative bg-card rounded-[1.8rem] p-[3px]">
-              <div className="rounded-[1.7rem] border-[3px] border-dashed border-primary/40 bg-gradient-to-br from-primary/[0.03] via-background to-secondary/[0.03] p-4 md:p-8 relative overflow-hidden">
-
-                {/* Subtle confetti dots background */}
-                <div
-                  className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                  style={{
-                    backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1.5px, transparent 1.5px), radial-gradient(circle, hsl(var(--secondary)) 1px, transparent 1px)`,
-                    backgroundSize: '24px 24px',
-                    backgroundPosition: '0 0, 12px 12px',
-                  }}
-                />
-
-                {/* Gallery Title inside frame */}
-                <div className="text-center mb-6 md:mb-8 relative z-10">
-                  <h3 className="font-cursive text-4xl md:text-5xl barbie-text mb-2">
-                    Memory Gallery
-                  </h3>
-                  <p className="font-dancing text-base md:text-lg text-muted-foreground">
-                    📸 Precious moments captured forever ✨
-                  </p>
-                  {/* Sparkle divider */}
-                  <div className="flex justify-center gap-1.5 mt-3">
-                    {['✨', '💖', '⭐', '🎀', '⭐', '💖', '✨'].map((e, i) => (
-                      <motion.span
-                        key={i}
-                        className="text-xs opacity-50"
-                        animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.9, 1.1, 0.9] }}
-                        transition={{ duration: 1.5, delay: i * 0.12, repeat: Infinity }}
-                      >
-                        {e}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Photo Grid inside the big frame */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 relative z-10">
-                  {photoSlots.map((slot, i) => (
-                    <motion.div
-                      key={i}
-                      className="relative group"
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.07, type: 'spring', stiffness: 200 }}
-                      whileHover={{ scale: 1.05, zIndex: 10 }}
-                    >
-                      {/* Individual mini frame */}
-                      <div className="relative p-[2px] rounded-xl bg-gradient-to-br from-primary/60 via-secondary/60 to-accent/60 shadow-md group-hover:shadow-lg transition-shadow">
-                        <div className="bg-card rounded-[10px] p-1">
-                          <div className="aspect-square rounded-lg bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex flex-col items-center justify-center gap-1.5 relative overflow-hidden border border-dashed border-primary/20">
-                            <span className="text-3xl md:text-4xl">{slot.emoji}</span>
-                            <Camera className="w-4 h-4 text-primary/25" />
-                            <span className="text-[10px] md:text-xs text-muted-foreground font-dancing">Add Photo</span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Mini label */}
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20">
-                        <div className="px-2 py-0.5 bg-gradient-to-r from-primary to-secondary rounded-full shadow-sm">
-                          <span className="text-[8px] md:text-[10px] font-dancing text-primary-foreground font-semibold whitespace-nowrap">
-                            {slot.label}
-                          </span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Bottom decoration inside frame */}
-                <div className="flex justify-center gap-3 mt-6 md:mt-8 relative z-10">
-                  {['🎀', '💖', '🎁', '🌟', '🎂', '🌟', '🎁', '💖', '🎀'].map((e, i) => (
-                    <motion.span
-                      key={i}
-                      className="text-sm md:text-base opacity-40"
-                      animate={{ y: [0, -4, 0] }}
-                      transition={{ duration: 2, delay: i * 0.15, repeat: Infinity }}
-                    >
-                      {e}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Corner decorations on the big frame */}
-          {[
-            { emoji: '🎈', pos: '-top-4 -left-3 md:-top-5 md:-left-4', size: 'text-3xl md:text-4xl' },
-            { emoji: '🎈', pos: '-top-4 -right-3 md:-top-5 md:-right-4', size: 'text-3xl md:text-4xl' },
-            { emoji: '🎁', pos: '-bottom-3 -left-3 md:-bottom-4 md:-left-4', size: 'text-2xl md:text-3xl' },
-            { emoji: '🎁', pos: '-bottom-3 -right-3 md:-bottom-4 md:-right-4', size: 'text-2xl md:text-3xl' },
-          ].map((d, i) => (
-            <motion.span
-              key={i}
-              className={`absolute ${d.pos} ${d.size} z-20 pointer-events-none`}
-              animate={{ y: [0, -6, 0], rotate: [0, i % 2 === 0 ? 8 : -8, 0] }}
-              transition={{ duration: 2.5, delay: i * 0.3, repeat: Infinity }}
-            >
-              {d.emoji}
-            </motion.span>
-          ))}
-
-          {/* Bottom banner */}
-          <motion.div
-            className="mt-6 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-full border border-border">
-              <motion.span animate={{ rotate: [0, 360] }} transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>⭐</motion.span>
-              <span className="font-dancing text-sm md:text-base text-primary">More memories coming soon!</span>
-              <motion.span animate={{ rotate: [360, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>⭐</motion.span>
-            </div>
-          </motion.div>
-        </div>
+        <MemoryGallery />
       </motion.div>
     </section>
   );
