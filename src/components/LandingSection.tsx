@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Sparkles from './Sparkles';
+import { Input } from '@/components/ui/input';
 import barbieCakeImg from '@/assets/barbie-cake.png';
 import animalsImg from '@/assets/animals-group.png';
 import patternImg from '@/assets/party-pattern.png';
@@ -8,10 +9,11 @@ import patternImg from '@/assets/party-pattern.png';
 interface LandingProps {
   childName: string;
   age: number;
-  onOpen: () => void;
+  onOpen: (guestName: string) => void;
 }
 
 const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
+  const [guestName, setGuestName] = useState('');
   return (
     <section
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
