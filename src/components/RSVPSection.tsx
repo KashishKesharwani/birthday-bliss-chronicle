@@ -289,7 +289,7 @@ const RSVPSection: React.FC<RSVPProps> = ({ childName }) => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                Thank You!
+                Thank You, {guestName}!
               </motion.h2>
 
               <motion.p
@@ -314,11 +314,30 @@ const RSVPSection: React.FC<RSVPProps> = ({ childName }) => {
                 className="text-muted-foreground font-dancing text-base md:text-lg leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                transition={{ delay: 1.0 }}
+              >
+                You are cordially invited! 💌
+              </motion.p>
+
+              <motion.p
+                className="text-muted-foreground font-dancing text-base md:text-lg leading-relaxed mt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
               >
-                You are cordially invited to<br />
-                <span className="text-primary font-semibold">{childName}'s Birthday Party!</span><br />
-                We're so excited to celebrate with you! 👑
+                Your presence has been confirmed.<br />
+                We are excited to celebrate{' '}
+                <span className="text-primary font-semibold">{childName}'s 2nd Birthday</span>{' '}
+                with you! 🎂💖
+              </motion.p>
+
+              <motion.p
+                className="text-primary font-semibold font-dancing text-xl mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.4 }}
+              >
+                See you at the party! 🎉🎀
               </motion.p>
 
               {/* Bouncing emojis */}
