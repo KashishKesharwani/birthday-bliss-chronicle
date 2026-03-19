@@ -25,12 +25,6 @@ const INVITATION_CONFIG = {
 
 const Index = () => {
   const [isOpened, setIsOpened] = useState(false);
-  const [guestName, setGuestName] = useState('');
-
-  const handleOpen = (name: string) => {
-    setGuestName(name);
-    setIsOpened(true);
-  };
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -44,7 +38,7 @@ const Index = () => {
             <LandingSection
               childName={INVITATION_CONFIG.childName}
               age={INVITATION_CONFIG.age}
-              onOpen={handleOpen}
+              onOpen={() => setIsOpened(true)}
             />
           </motion.div>
         ) : (
@@ -69,7 +63,7 @@ const Index = () => {
               mapsLink={INVITATION_CONFIG.mapsLink}
             />
             <BlessingsSection />
-            <RSVPSection childName={INVITATION_CONFIG.childName} guestName={guestName} />
+            <RSVPSection childName={INVITATION_CONFIG.childName} />
 
             <footer className="relative py-10 text-center bg-gradient-to-t from-primary/10 to-transparent">
               <motion.p

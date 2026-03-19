@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 /* ── Burst Particle (cracker + balloon pieces) ── */
@@ -187,14 +188,14 @@ const SparkleRain: React.FC<{ count?: number }> = ({ count = 40 }) => {
 /* ── Main RSVP Section ── */
 interface RSVPProps {
   childName: string;
-  guestName: string;
 }
 
-const RSVPSection: React.FC<RSVPProps> = ({ childName, guestName }) => {
+const RSVPSection: React.FC<RSVPProps> = ({ childName }) => {
+  const [guestName, setGuestName] = useState('');
   const [accepted, setAccepted] = useState(false);
 
   const handleAccept = () => {
-    setAccepted(true);
+    if (guestName.trim()) setAccepted(true);
   };
 
   return (
@@ -221,14 +222,24 @@ const RSVPSection: React.FC<RSVPProps> = ({ childName, guestName }) => {
             >
               RSVP
             </motion.h2>
-            <p className="text-muted-foreground font-dancing text-xl mb-4">
-              Dear <span className="text-primary font-semibold">{guestName}</span>, accept the invitation to join the party! 💌
+            <p className="text-muted-foreground font-dancing text-xl mb-10">
+              Accept the invitation to join the party! 💌
             </p>
 
             <motion.div className="bg-card p-6 md:p-8 rounded-3xl shadow-xl border border-border" whileHover={{ y: -3 }}>
+              <div className="mb-6">
+                <Input
+                  value={guestName}
+                  onChange={(e) => setGuestName(e.target.value)}
+                  placeholder="Enter your name..."
+                  className="text-center text-lg py-6 rounded-2xl border-primary/30 focus:border-primary"
+                  onKeyDown={(e) => e.key === 'Enter' && handleAccept()}
+                />
+              </div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   onClick={handleAccept}
+                  disabled={!guestName.trim()}
                   className="w-full py-6 text-lg rounded-2xl bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground font-semibold shadow-lg"
                 >
                   🎀 Accept Invitation 🎀
