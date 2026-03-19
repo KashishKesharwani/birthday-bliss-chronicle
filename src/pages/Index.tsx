@@ -25,12 +25,6 @@ const INVITATION_CONFIG = {
 
 const Index = () => {
   const [isOpened, setIsOpened] = useState(false);
-  const [guestName, setGuestName] = useState('');
-
-  const handleOpen = (name: string) => {
-    setGuestName(name);
-    setIsOpened(true);
-  };
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -44,7 +38,7 @@ const Index = () => {
             <LandingSection
               childName={INVITATION_CONFIG.childName}
               age={INVITATION_CONFIG.age}
-              onOpen={handleOpen}
+              onOpen={() => setIsOpened(true)}
             />
           </motion.div>
         ) : (
