@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 /* ── Burst Particle (cracker + balloon pieces) ── */
