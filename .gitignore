@@ -1,3 +1,9 @@
+# Lock files (allow fresh npm install)
+package-lock.json
+pnpm-lock.yaml
+bun.lock
+bun.lockb
+
 # Logs
 logs
 *.log
