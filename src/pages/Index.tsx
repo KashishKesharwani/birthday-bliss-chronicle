@@ -69,7 +69,7 @@ const Index = () => {
               mapsLink={INVITATION_CONFIG.mapsLink}
             />
             <BlessingsSection />
-            <RSVPSection childName={INVITATION_CONFIG.childName} />
+            <RSVPSection childName={INVITATION_CONFIG.childName} guestName={guestName} />
 
             <footer className="relative py-10 text-center bg-gradient-to-t from-primary/10 to-transparent">
               <motion.p

@@ -193,14 +193,30 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
           </motion.span>
         </motion.div>
 
+        {/* Guest name input */}
+        <motion.div
+          className="mx-auto mb-6 max-w-xs"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4 }}
+        >
+          <Input
+            value={guestName}
+            onChange={(e) => setGuestName(e.target.value)}
+            placeholder="Enter your name..."
+            className="text-center text-lg py-5 rounded-2xl border-primary/30 focus:border-primary bg-card/80 backdrop-blur-sm"
+            onKeyDown={(e) => e.key === 'Enter' && guestName.trim() && onOpen(guestName.trim())}
+          />
+        </motion.div>
+
         <motion.button
-          onClick={onOpen}
-          className="relative px-10 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full text-xl font-semibold shadow-xl overflow-hidden group"
+          onClick={() => guestName.trim() && onOpen(guestName.trim())}
+          className={`relative px-10 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full text-xl font-semibold shadow-xl overflow-hidden group ${!guestName.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          transition={{ delay: 1.6 }}
+          whileHover={guestName.trim() ? { scale: 1.05 } : {}}
+          whileTap={guestName.trim() ? { scale: 0.95 } : {}}
           style={{ animation: 'pulse-glow 2s infinite' }}
         >
           <span className="relative z-10 flex items-center gap-2">
