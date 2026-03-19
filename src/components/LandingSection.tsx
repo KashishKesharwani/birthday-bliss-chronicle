@@ -110,23 +110,32 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          ✨ You're Invited to ✨
+          ✨ Dear Guest, ✨
+        </motion.p>
+
+        <motion.p
+          className="text-xl md:text-2xl font-dancing text-secondary mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          You are cordially invited<br />to celebrate
         </motion.p>
 
         <motion.h1
-          className="font-cursive text-6xl md:text-8xl lg:text-9xl barbie-text mb-2"
+          className="font-cursive text-5xl md:text-7xl lg:text-8xl barbie-text mb-2"
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8, type: 'spring' }}
+          transition={{ delay: 0.8, duration: 0.8, type: 'spring' }}
         >
-          {childName}'s
+          💖 {childName}'s
         </motion.h1>
 
         <motion.div
           className="flex items-center justify-center gap-3 mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 1.0 }}
         >
           <span className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
           <motion.span
@@ -146,9 +155,9 @@ const LandingSection: React.FC<LandingProps> = ({ childName, age, onOpen }) => {
           className="text-3xl md:text-5xl font-dancing text-secondary mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.2 }}
         >
-          Birthday Party! 🎀
+          Birthday Party! 💖
         </motion.h2>
 
         {/* Barbie girl cake image */}
