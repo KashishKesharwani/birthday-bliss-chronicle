@@ -12,29 +12,29 @@ const tabs: { key: TabKey; label: string; icon: React.ReactNode }[] = [
 
 // Placeholder photos for demo
 const barbiePhotos = [
-  { id: 1, label: 'Day 1 👶', emoji: '👶' },
-  { id: 2, label: '3 Months 😊', emoji: '😊' },
-  { id: 3, label: '6 Months 🦷', emoji: '🦷' },
-  { id: 4, label: '9 Months 🏃', emoji: '🏃' },
-  { id: 5, label: '1 Year 👣', emoji: '👣' },
-  { id: 6, label: 'Birthday! 🎂', emoji: '🎂' },
-  { id: 7, label: 'Smiling 😄', emoji: '😄' },
-  { id: 8, label: 'Princess 👑', emoji: '👑' },
+  { id: 1, label: 'Day 1 👶', emoji: '👶', image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&h=400&fit=crop' },
+  { id: 2, label: '3 Months 😊', emoji: '😊', image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=400&fit=crop' },
+  { id: 3, label: '6 Months 🦷', emoji: '🦷', image: 'https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=400&fit=crop' },
+  { id: 4, label: '9 Months 🏃', emoji: '🏃', image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop' },
+  { id: 5, label: '1 Year 👣', emoji: '👣', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop' },
+  { id: 6, label: 'Birthday! 🎂', emoji: '🎂', image: 'https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?w=400&h=400&fit=crop' },
+  { id: 7, label: 'Smiling 😄', emoji: '😄', image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?w=400&h=400&fit=crop' },
+  { id: 8, label: 'Princess 👑', emoji: '👑', image: 'https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=400&h=400&fit=crop' },
 ];
 
 const gridPhotos = [
-  { id: 1, label: 'With Family', emoji: '👨‍👩‍👧' },
-  { id: 2, label: 'Princess Mode', emoji: '👑' },
-  { id: 3, label: 'First Cake', emoji: '🎂' },
-  { id: 4, label: 'Party Time', emoji: '🎉' },
-  { id: 5, label: 'Big Smile', emoji: '😊' },
-  { id: 6, label: 'Dancing', emoji: '💃' },
-  { id: 7, label: 'Gifts', emoji: '🎁' },
-  { id: 8, label: 'Love', emoji: '💖' },
-  { id: 9, label: 'Playing', emoji: '🧸' },
-  { id: 10, label: 'Sleeping', emoji: '😴' },
-  { id: 11, label: 'Bath Time', emoji: '🛁' },
-  { id: 12, label: 'First Walk', emoji: '🚶' },
+  { id: 1, label: 'With Family', emoji: '👨‍👩‍👧', image: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=400&h=400&fit=crop' },
+  { id: 2, label: 'Princess Mode', emoji: '👑', image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&h=400&fit=crop' },
+  { id: 3, label: 'First Cake', emoji: '🎂', image: 'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&h=400&fit=crop' },
+  { id: 4, label: 'Party Time', emoji: '🎉', image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop' },
+  { id: 5, label: 'Big Smile', emoji: '😊', image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=400&fit=crop' },
+  { id: 6, label: 'Dancing', emoji: '💃', image: 'https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=400&fit=crop' },
+  { id: 7, label: 'Gifts', emoji: '🎁', image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&h=400&fit=crop' },
+  { id: 8, label: 'Love', emoji: '💖', image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop' },
+  { id: 9, label: 'Playing', emoji: '🧸', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop' },
+  { id: 10, label: 'Sleeping', emoji: '😴', image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?w=400&h=400&fit=crop' },
+  { id: 11, label: 'Bath Time', emoji: '🛁', image: 'https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?w=400&h=400&fit=crop' },
+  { id: 12, label: 'First Walk', emoji: '🚶', image: 'https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=400&h=400&fit=crop' },
 ];
 
 const stories = [
