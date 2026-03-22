@@ -122,7 +122,43 @@ const EventDetailsSection: React.FC<EventDetailsProps> = ({
         viewport={{ once: true }}
       >
         <div className="bg-gradient-to-r from-primary/5 to-secondary/5 p-8 rounded-3xl border border-border text-center">
-          <h3 className="text-xl font-semibold text-foreground mb-4">👨‍👩‍👧 Contact Us</h3>
+          <motion.div
+            className="flex items-center justify-center gap-2 mb-2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className="text-2xl"
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >✨</motion.span>
+            <span className="font-dancing text-sm md:text-base text-primary tracking-widest uppercase">Get in Touch</span>
+            <motion.span
+              className="text-2xl"
+              animate={{ rotate: [0, -10, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >✨</motion.span>
+          </motion.div>
+
+          <motion.h3
+            className="font-cursive text-3xl md:text-4xl barbie-text mb-1"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            Contact Us
+          </motion.h3>
+
+          <motion.div
+            className="mx-auto w-20 h-1 rounded-full bg-gradient-to-r from-primary via-secondary to-accent mb-4"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          />
+
           <p className="font-dancing text-2xl text-primary mb-4">{familyName}</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
