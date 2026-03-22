@@ -294,9 +294,11 @@ const MemoryGridTab: React.FC = () => {
               >
                 <X className="w-4 h-4" />
               </button>
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex flex-col items-center justify-center gap-3 border border-primary/10">
-                <span className="text-7xl md:text-8xl">{gridPhotos[selectedPhoto].emoji}</span>
-                <span className="font-dancing text-xl md:text-2xl text-primary font-bold">{gridPhotos[selectedPhoto].label}</span>
+              <div className="aspect-square rounded-2xl overflow-hidden relative border border-primary/10">
+                <img src={gridPhotos[selectedPhoto].image} alt={gridPhotos[selectedPhoto].label} className="w-full h-full object-cover" />
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-primary/80 backdrop-blur-sm px-4 py-1.5 rounded-full">
+                  <span className="font-dancing text-lg md:text-xl text-primary-foreground font-bold">{gridPhotos[selectedPhoto].label}</span>
+                </div>
               </div>
               {/* Navigation */}
               <div className="flex justify-between mt-4">
