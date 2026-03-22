@@ -148,14 +148,18 @@ const BarbieFrameTab: React.FC = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedPhoto}
-                  className="flex flex-col items-center gap-2"
+                  className="w-full h-full flex flex-col items-center justify-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="text-6xl sm:text-7xl md:text-8xl">{barbiePhotos[selectedPhoto].emoji}</span>
-                  <span className="font-dancing text-lg md:text-2xl text-primary/70 font-bold">{barbiePhotos[selectedPhoto].label}</span>
+                  <img
+                    src={barbiePhotos[selectedPhoto].image}
+                    alt={barbiePhotos[selectedPhoto].label}
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                  <span className="absolute bottom-3 font-dancing text-lg md:text-2xl text-primary-foreground font-bold bg-primary/70 px-4 py-1 rounded-full backdrop-blur-sm">{barbiePhotos[selectedPhoto].label}</span>
                 </motion.div>
               </AnimatePresence>
 
@@ -197,13 +201,10 @@ const BarbieFrameTab: React.FC = () => {
                       : 'bg-border/50 hover:bg-primary/30'
                   }`}>
                     <div className="bg-card rounded-[10px] p-1">
-                      <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg flex flex-col items-center justify-center gap-0.5 transition-all ${
-                        selectedPhoto === i ? 'bg-primary/10' : 'bg-muted/30'
+                      <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg overflow-hidden transition-all ${
+                        selectedPhoto === i ? 'ring-2 ring-primary' : ''
                       }`}>
-                        <span className="text-xl sm:text-2xl md:text-3xl">{photo.emoji}</span>
-                        <span className="text-[7px] sm:text-[8px] md:text-[10px] font-dancing text-muted-foreground font-semibold leading-tight text-center px-0.5">
-                          {photo.label}
-                        </span>
+                        <img src={photo.image} alt={photo.label} className="w-full h-full object-cover" />
                       </div>
                     </div>
                   </div>
@@ -254,9 +255,11 @@ const MemoryGridTab: React.FC = () => {
           >
             <div className="p-[2px] rounded-2xl bg-gradient-to-br from-primary/50 via-secondary/50 to-accent/50 shadow-md group-hover:shadow-xl group-hover:shadow-primary/20 transition-all">
               <div className="bg-card rounded-[14px] p-1.5">
-                <div className="aspect-square rounded-xl bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex flex-col items-center justify-center gap-2 relative overflow-hidden">
-                  <span className="text-3xl md:text-4xl group-hover:scale-110 transition-transform">{photo.emoji}</span>
-                  <span className="text-[10px] md:text-xs text-muted-foreground font-dancing font-semibold">{photo.label}</span>
+                <div className="aspect-square rounded-xl overflow-hidden relative">
+                  <img src={photo.image} alt={photo.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                    <span className="text-xs md:text-sm text-white font-dancing font-semibold">{photo.label}</span>
+                  </div>
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors rounded-xl flex items-center justify-center">
                     <Camera className="w-5 h-5 text-primary opacity-0 group-hover:opacity-40 transition-opacity" />
